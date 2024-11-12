@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch-case statement</title>
+</head>
+<body>
+<input type="number" id="month">
+<button type="button" onclick="calculateToday()"> Calculate Today </button>
+<p id="display"></p>
+<script>
+    function calculateToday() {
+        let month = parseInt(document.getElementById("month").value);
+        let result;
+        if (month <= 0 ||month >=12){
+            result = "invalid value";
+        }else {
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12: {
+                    result = "January Has 31 days";
+                    break;
+                }
+                case 2: {
+                    result = "Has 28 days or 29 days";
+                    break;
+                }
+                case 4:
+                case 6:
+                case 9:
+                case 11: {
+                    result = "Has 30 days";
+                    break;
+                }
+            }
+        }
+        document.getElementById("display").innerHTML = "Result: " + result;
+    }
+</script>
+</body>
+</html>
