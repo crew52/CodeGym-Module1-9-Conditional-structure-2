@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional structure practice 01</title>
+</head>
+<body>
+<!--p1-->
+<form action="">
+    <label>A <input type="number" id="a"></label> <br>
+    <label>B <input type="number" id="b"></label> <br>
+    <button type="button" onclick="checkAB()"> Submit</button>
+    <p id="checkAB"></p><br><hr>
+</form>
+
+<!--p2-->
+<form action="">
+    <label>Age <input type="number" id="age"></label> <br>
+    <button type="button" onclick="checkAge()"> Submit</button>
+    <p id="checkAge"></p><br><hr>
+</form>
+
+<!--p3-->
+<form action="">
+    <label>Number <input type="number" id="number"></label> <br>
+    <button type="button" onclick="checkNumber()"> Submit</button>
+    <p id="checkNumber"></p><br><hr>
+</form>
+
+<!--p4-->
+<form action="">
+    <label>Number 1 <input type="number" id="number1"></label> <br>
+    <label>Number 2 <input type="number" id="number2"></label> <br>
+    <label>Number 3 <input type="number" id="number3"></label> <br>
+    <button type="button" onclick="checkBiggest()"> Submit</button>
+    <p id="checkBiggest"></p><br><hr>
+</form>
+
+<!--p5-->
+<form action="">
+    <label>Score <input type="number" id="score"></label> <br>
+    <button type="button" onclick="checkScore()"> Submit</button>
+    <p id="checkScore"></p><br><hr>
+</form>
+
+<script>
+    <!--p1-->
+    function checkAB() {
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+        let result;
+        if (a % b === 0) {
+            result = "a divides everything by b";
+        }else {
+            result = "a is not divisible by b";
+        }
+        document.getElementById("checkAB").innerHTML = "result: " + result;
+    }
+    <!--p2-->
+    function checkAge() {
+        let age = parseInt(document.getElementById("age").value);
+        let result;
+        if (age < 15) {
+            result = "Students not eligible to enter grade 10";
+        }else {
+            result = "Students eligible to enter grade 10";
+        }
+        document.getElementById("checkAge").innerHTML = "result: " + result;
+    }
+
+    <!--p3-->
+    function checkNumber() {
+        let number = parseInt(document.getElementById("number").value);
+        let result;
+        if (number < 0) {
+            result = "Number < 0";
+        }else if (number === 0){
+            result = "Number = 0";
+        }else {
+            result = "Number > 0";
+        }
+        document.getElementById("checkNumber").innerHTML = "result: " + result;
+    }
+
+    <!--p4-->
+    function checkBiggest() {
+        let number1 = parseInt(document.getElementById("number1").value);
+        let number2 = parseInt(document.getElementById("number2").value);
+        let number3 = parseInt(document.getElementById("number3").value);
+        let result;
+        if (number1 > number2 && number1 > number3) {
+            result = "Number 1 is Biggest";
+        }
+        if (number2 > number1 && number2 > number3) {
+            result = "Number 2 is Biggest";
+        }
+        if (number3 > number2 && number3 > number1) {
+            result = "Number 3 is Biggest";
+        }
+        document.getElementById("checkBiggest").innerHTML = "result: " + result;
+    }
+
+    <!--p5-->
+    function checkScore() {
+        let score = parseFloat(document.getElementById("score").value);
+        let result;
+        if (score < 0 || score > 10){
+            result = "Invalid value";
+        }else {
+            if (score < 4){
+                result = "Poor academic performance";
+            }else if (score < 6.5){
+                result = "Average academic performance";
+            }else if (score < 8){
+                result = "Excellent academic performance";
+            }else {
+                result = "Good academic performance";
+            }
+        }
+        document.getElementById("checkScore").innerHTML = "result: " + result;
+    }
+
+
+</script>
+</body>
+</html>
