@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ConditionalStructurePractice02</title>
+</head>
+<body>
+<!--p1-->
+<form action="">
+  <label>Oc <input type="number" id="c"></label> <br>
+  <button type="button" onclick="checkOc()"> Submit</button>
+  <p id="checkOc"></p><br><hr>
+</form>
+
+<!--p2-->
+<form action="">
+  <label>M <input type="number" id="m"></label> <br>
+  <button type="button" onclick="checkMet()"> Submit</button>
+  <p id="checkMet"></p><br><hr>
+</form>
+
+<!-- Bài 3: Diện tích hình vuông -->
+<h2>Bài 3: Tính diện tích hình vuông</h2>
+<label for="square-side">Nhập cạnh a: </label>
+<input type="number" id="square-side" step="any">
+<button onclick="calculateSquareArea()">Tính diện tích</button>
+<p id="square-result"></p>
+
+<!-- Bài 4: Diện tích hình chữ nhật -->
+<h2>Bài 4: Tính diện tích hình chữ nhật</h2>
+<label for="rectangle-width">Nhập cạnh a: </label>
+<input type="number" id="rectangle-width" step="any">
+<label for="rectangle-height">Nhập cạnh b: </label>
+<input type="number" id="rectangle-height" step="any">
+<button onclick="calculateRectangleArea()">Tính diện tích</button>
+<p id="rectangle-result"></p>
+
+<!-- Bài 5: Diện tích tam giác vuông -->
+<h2>Bài 5: Tính diện tích tam giác vuông</h2>
+<label for="triangle-base">Nhập cạnh a: </label>
+<input type="number" id="triangle-base" step="any">
+<label for="triangle-height">Nhập cạnh b: </label>
+<input type="number" id="triangle-height" step="any">
+<button onclick="calculateTriangleArea()">Tính diện tích</button>
+<p id="triangle-result"></p>
+
+<!-- Bài 6: Giải phương trình bậc 1 -->
+<h2>Bài 6: Giải phương trình bậc 1 (ax + b = 0)</h2>
+<label for="linear-a">Nhập hệ số a: </label>
+<input type="number" id="linear-a" step="any">
+<label for="linear-b">Nhập hệ số b: </label>
+<input type="number" id="linear-b" step="any">
+<button onclick="solveLinearEquation()">Giải phương trình</button>
+<p id="linear-result"></p>
+
+<!-- Bài 7: Giải phương trình bậc 2 -->
+<h2>Bài 7: Giải phương trình bậc 2 (ax² + bx + c = 0)</h2>
+<label for="quadratic-a">Nhập hệ số a: </label>
+<input type="number" id="quadratic-a" step="any">
+<label for="quadratic-b">Nhập hệ số b: </label>
+<input type="number" id="quadratic-b" step="any">
+<label for="quadratic-c">Nhập hệ số c: </label>
+<input type="number" id="quadratic-c" step="any">
+<button onclick="solveQuadraticEquation()">Giải phương trình</button>
+<p id="quadratic-result"></p>
+
+<!-- Bài 8: Kiểm tra tuổi -->
+<h2>Bài 8: Kiểm tra tuổi</h2>
+<label for="age">Nhập số tuổi: </label>
+<input type="number" id="age">
+<button onclick="checkAge()">Kiểm tra</button>
+<p id="age-result"></p>
+
+<script>
+  <!--  p1-->
+    function checkOc() {
+      let c = parseInt(document.getElementById("c").value);
+      let result = ((9*c)/5 + 32);
+      document.getElementById("checkOc").innerHTML = "result: F = " + result;
+    }
+
+  <!--  p2-->
+  function checkMet() {
+    let m = parseInt(document.getElementById("m").value);
+    let result = m * 3.2808;
+    document.getElementById("checkMet").innerHTML = "result: F = " + result;
+  }
+
+  function calculateSquareArea() {
+    let a = parseFloat(document.getElementById("square-side").value);
+    if (!isNaN(a)) {
+      let area = a * a;
+      document.getElementById("square-result").innerText = "Diện tích hình vuông: " + area;
+    } else {
+      document.getElementById("square-result").innerText = "Vui lòng nhập giá trị hợp lệ cho cạnh a.";
+    }
+  }
+
+  function calculateRectangleArea() {
+    let a = parseFloat(document.getElementById("rectangle-width").value);
+    let b = parseFloat(document.getElementById("rectangle-height").value);
+    if (!isNaN(a) && !isNaN(b)) {
+      let area = a * b;
+      document.getElementById("rectangle-result").innerText = "Diện tích hình chữ nhật: " + area;
+    } else {
+      document.getElementById("rectangle-result").innerText = "Vui lòng nhập giá trị hợp lệ cho các cạnh a và b.";
+    }
+  }
+
+  function calculateTriangleArea() {
+    let a = parseFloat(document.getElementById("triangle-base").value);
+    let b = parseFloat(document.getElementById("triangle-height").value);
+    if (!isNaN(a) && !isNaN(b)) {
+      let area = (a * b) / 2;
+      document.getElementById("triangle-result").innerText = "Diện tích tam giác vuông: " + area;
+    } else {
+      document.getElementById("triangle-result").innerText = "Vui lòng nhập giá trị hợp lệ cho các cạnh a và b.";
+    }
+  }
+
+  function solveLinearEquation() {
+    let a = parseFloat(document.getElementById("linear-a").value);
+    let b = parseFloat(document.getElementById("linear-b").value);
+    if (a === 0 && b === 0) {
+      document.getElementById("linear-result").innerText = "Phương trình có vô số nghiệm.";
+    } else if (a === 0) {
+      document.getElementById("linear-result").innerText = "Phương trình vô nghiệm.";
+    } else {
+      let x = -b / a;
+      document.getElementById("linear-result").innerText = "Nghiệm của phương trình: x = " + x;
+    }
+  }
+
+  function solveQuadraticEquation() {
+    let a = parseFloat(document.getElementById("quadratic-a").value);
+    let b = parseFloat(document.getElementById("quadratic-b").value);
+    let c = parseFloat(document.getElementById("quadratic-c").value);
+    if (a === 0) {
+      document.getElementById("quadratic-result").innerText = "Hệ số a phải khác 0.";
+      return;
+    }
+    let delta = b * b - 4 * a * c;
+    if (delta < 0) {
+      document.getElementById("quadratic-result").innerText = "Phương trình vô nghiệm.";
+    } else if (delta === 0) {
+      let x = -b / (2 * a);
+      document.getElementById("quadratic-result").innerText = "Phương trình có nghiệm kép: x = " + x;
+    } else {
+      let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+      let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+      document.getElementById("quadratic-result").innerText = "Phương trình có hai nghiệm: x1 = " + x1 + ", x2 = " + x2;
+    }
+  }
+
+  function checkAge() {
+    let age = parseInt(document.getElementById("age").value);
+    if (age > 0 && age < 120) {
+      document.getElementById("age-result").innerText = "Đây là tuổi của một người.";
+    } else {
+      document.getElementById("age-result").innerText = "Đây không phải là tuổi hợp lệ.";
+    }
+  }
+</script>
+</body>
+</html>
